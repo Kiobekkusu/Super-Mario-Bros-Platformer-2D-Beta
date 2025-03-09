@@ -37,9 +37,10 @@ func _physics_process(delta):
 			speed = limit_speed
 		elif -speed < -limit_speed:
 			speed = -limit_speed
+		anim_player.speed_scale = imgspeed
 	else:
 		speed = 150
-	anim_player.speed_scale = imgspeed
+		anim_player.speed_scale = 4
 	
 	# if not move
 	if direction == 0:
@@ -60,7 +61,7 @@ func _physics_process(delta):
 	elif direction < 0:
 		anim_player.play("RUN")
 		if on_floor == true:
-			spr_player.flip_h = true
+			spr_player.flip_h = true 
 	else:
 		anim_player.play("IDLE")
 
