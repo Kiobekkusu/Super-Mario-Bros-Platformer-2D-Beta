@@ -94,7 +94,13 @@ func _physics_process(delta):
 			collider.move_block()
 			velocity.y += jump_speed
 			
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider is BlockCoin and not collider.is_moving:
+			collider.move_block()
+			velocity.y += jump_speed
+			
 		
-	print(velocity.x)
+	# print(velocity.x)
 		
 	move_and_slide()
